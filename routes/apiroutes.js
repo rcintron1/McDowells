@@ -19,4 +19,5 @@ module.exports = function (app) {
         
         res.json(waitingData);
     });
+
 };

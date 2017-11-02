@@ -69,17 +69,20 @@
   </div>
 
   <script>
-    $("submit-btn").on("click", function(event) {
+    $("#submit-btn").on("click", function(event) {
       event.preventDefault();
       var newReservation = {
-        name: $("formNameInput").val().trim(),
-        phone: $("formPhoneInput").val().trim(),
-        email: $("formEmailInput").val().trim(),
-        id: $("formIdInput").val().trim()
+        name: $("#formNameInput").val().trim(),
+        phone: $("#formPhoneInput").val().trim(),
+        email: $("#formEmailInput").val().trim(),
+        id: $("#formIdInput").val().trim()
       };
+
       $.post("/api/new", newReservation)
         .done(function(data) {
           console.log("Adding customer: " + data.id);
+        }).fail(function(err){
+            console.log("error ->", err);
         });
     });
   </script>
